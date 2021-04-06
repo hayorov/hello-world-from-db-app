@@ -1,0 +1,23 @@
+{
+  "name": "hello-world-from-db",
+  "version": "1.0.0",
+  "description": "Hello World From DB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hayorov/hello-world-from-db-app.git"
+  },
+  "author": "Alex Khaerov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hayorov/hello-world-from-db-app/issues"
+  },
+  "homepage": "https://github.com/hayorov/hello-world-from-db-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "redis": "^3.1.0"
+  }
+}

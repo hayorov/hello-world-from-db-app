@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    container_name: app
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+  db:
+      image: redis:6.2
+      container_name: db
+      ports:
+        - 6379:6379
