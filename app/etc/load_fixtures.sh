@@ -3,5 +3,14 @@
 set -ueE 
 set -o pipefail
 
-echo "Loading DB fixtures..."
-redis-cli set stringFromDB 'Hello World'
+HOST="${DB_HOST:-localhost}"
+PORT="${DP_PORT:-6379}"
+
+ARGS=""
+
+[[ "${DB_PASSWORD:-false}" != false ]] && {
+    ARGS="${ARGS} -a ${DB_PASSWORD}"
+}
+
+echo "Loading DB fixtures to ${DB_HOST}:${PORT}"
+redis-cli -h "${HOST}" -p "${PORT}" ${ARGS} set stringFromDB 'Hello World'

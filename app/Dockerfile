@@ -4,7 +4,7 @@ COPY src/package*.json /usr/src/app/
 RUN --mount=type=secret,mode=0644,id=npmrc,target=/usr/src/app/.npmrc npm ci --only=production
 
 FROM node:lts-alpine
-RUN apk add dumb-init
+RUN apk add dumb-init bash redis  # redis-cli used for fixtures
 ENV NODE_ENV production
 USER node
 WORKDIR /usr/src/app
