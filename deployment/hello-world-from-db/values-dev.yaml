@@ -1,0 +1,54 @@
+environment: "development"
+
+loadFixtures: true
+
+image:
+  repository: hello-world-from-db
+  pullPolicy: Never # minikube usecase
+  tag: latest
+
+imagePullSecrets: []
+
+autoscaling:
+  enabled: false
+
+replicaCount: 1
+
+redis:
+  cluster:
+    enabled: false
+  usePassword: false
+
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+  readOnlyRootFilesystem: true
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  hosts:
+    - host: hello-world-from-db.local
+      paths:
+        - path: /
+          backend:
+            serviceName: hello-world-from-db-dev
+            servicePort: 80
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+podAnnotations: {}
+
+podSecurityContext: {}
