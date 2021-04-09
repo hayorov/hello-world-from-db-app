@@ -59,9 +59,8 @@
 
 - [SECURITY] App exposed with HTTP/TLS. TLS resources manage separately.
   ```
-  export HOST=prod-hello-world-from-db.local
-  openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout test_key -out test_cert -subj "/CN=${HOST}/O=${HOST}"
-  kubectl create secret tls prod-hello-world-from-db-tls --key test_key --cert test_cert
+  # Generate test PKI https://stackoverflow.com/a/60516812/5860684
+  kubectl create secret tls prod-hello-world-from-db-tls --key test_key.key --cert test_cert.cert
   ```
 - [SCALABILITY] App autoscaled with HPA, see `autoscaling` and resources (CPU/Mem) defined.
 
