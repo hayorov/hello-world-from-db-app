@@ -34,6 +34,8 @@
 - minukube with ingress, metrics-server addons
 - helm and kubernetes-cli
 
+### Provisioning 
+
 - Execute runner.sh, specifying STAGE as an environment variable. `dev` and `prod` supported.
 
   #### dev
